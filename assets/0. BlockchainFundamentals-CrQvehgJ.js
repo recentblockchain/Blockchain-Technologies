@@ -1,4 +1,4 @@
-import{r as m,j as e}from"./index-Z3qH07gz.js";import{F as $}from"./Footer-nn-veu6z.js";const t={bg0:"#0a0c10",bg1:"#10141c",bg2:"#161c28",bg3:"#1e2636",border:"#2a3448",amber:"#f5a623",amberDim:"#c47f12",cyan:"#4dd9e0",red:"#e05c5c",green:"#4ec994",purple:"#9b72f5",text:"#d4dbe8",textMuted:"#7a8ba8",textBright:"#edf2f8"},D=`
+import{r as m,j as e}from"./index-OP-F52N7.js";import{F as $}from"./Footer-h1z9N8Ct.js";const t={bg0:"#0a0c10",bg1:"#10141c",bg2:"#161c28",bg3:"#1e2636",border:"#2a3448",amber:"#f5a623",amberDim:"#c47f12",cyan:"#4dd9e0",red:"#e05c5c",green:"#4ec994",purple:"#9b72f5",text:"#d4dbe8",textMuted:"#7a8ba8",textBright:"#edf2f8"},D=`
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: ${t.bg0}; }
