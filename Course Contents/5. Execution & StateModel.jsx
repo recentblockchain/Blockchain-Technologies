@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Footer from "../src/Footer";
+﻿import React, { useState } from "react";
 
 /**
  * ACM-Style Chapter Activity
@@ -729,7 +728,6 @@ function Assessment() {
           </ol>
         </div>
       )}
-      <Footer />
     </section>
   );
 }

@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
-import Footer from "../src/Footer";
+﻿import { useState, useEffect, useCallback, useRef } from "react";
 
 // ─── FONTS & GLOBAL CSS ──────────────────────────────────────────────────────
 const STYLES = `
@@ -1880,7 +1879,6 @@ export default function BlockchainDataStructures() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

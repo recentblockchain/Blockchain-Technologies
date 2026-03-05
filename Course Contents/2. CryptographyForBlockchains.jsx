@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback, useMemo, useRef } from "react";
-import Footer from "../src/Footer";
+﻿import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 
 // ─── GLOBAL STYLES ────────────────────────────────────────────────────────────
 const STYLES = `
@@ -2095,7 +2094,6 @@ export default function CryptographyForBlockchains() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

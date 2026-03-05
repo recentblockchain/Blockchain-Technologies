@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import Footer from "../src/Footer";
+﻿import React, { useState, useCallback, useMemo } from 'react';
 
 const GovernanceOperationsCapstone = () => {
     // ============================================================================
@@ -2941,7 +2940,6 @@ Responsible Disclosure Checklist:
                     <ActiveSection />
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };

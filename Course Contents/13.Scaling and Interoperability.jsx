@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Footer from "../src/Footer";
+﻿import React, { useState, useEffect } from 'react';
 
 const ScalingAndInteroperabilityModule = () => {
     const [currentSection, setCurrentSection] = useState('intro');
@@ -2219,7 +2218,6 @@ EXERCISE:
                     {renderContent()}
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };

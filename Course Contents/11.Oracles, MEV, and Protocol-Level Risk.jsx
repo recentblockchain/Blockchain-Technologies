@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import Footer from "../src/Footer";
+﻿import React, { useState, useCallback, useMemo } from 'react';
 
 const OraclesMEVModule = () => {
     // ============================================================================
@@ -2258,7 +2257,6 @@ contract HardenedLendingPool is SimpleLendingPool {
         <div style={styles.container}>
             <NavBar />
             <div style={styles.content}>{renderSection()}</div>
-            <Footer />
         </div>
     );
 };

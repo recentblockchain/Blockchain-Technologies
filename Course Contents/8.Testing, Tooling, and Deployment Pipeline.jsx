@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import Footer from "../src/Footer";
+﻿import React, { useState, useCallback, useMemo } from 'react';
 
 const MODULE = {
     title: "Testing, Tooling, and Deployment Pipeline",
@@ -2199,7 +2198,6 @@ export default function TestingDeploymentModule() {
                     </ul>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 }

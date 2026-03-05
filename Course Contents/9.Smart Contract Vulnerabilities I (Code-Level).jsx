@@ -1,6 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import Footer from "../src/Footer";
-const { ethers } = require("hardhat");
+﻿import React, { useState, useCallback, useMemo } from 'react';
 
 const ModuleContent = () => {
     const [currentSection, setCurrentSection] = useState('intro');
@@ -2039,7 +2037,6 @@ describe("Reentrancy Exploit", () => {
             >
                 {renderSection()}
             </div>
-            <Footer />
         </div>
     );
 };

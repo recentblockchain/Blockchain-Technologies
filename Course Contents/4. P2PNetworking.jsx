@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback, useRef, useMemo } from "react";
-import Footer from "../src/Footer";
+﻿import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 
 // ─── GLOBAL STYLES ────────────────────────────────────────────────────────────
 const STYLES = `
@@ -2086,7 +2085,6 @@ export default function P2PNetworking() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

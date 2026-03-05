@@ -1,5 +1,4 @@
-import React, { useState, useCallback } from 'react';
-import Footer from "../src/Footer";
+﻿import React, { useState, useCallback } from 'react';
 
 const ThreatModelingModule = () => {
     const [currentSection, setCurrentSection] = useState('intro');
@@ -2851,7 +2850,6 @@ Sandwich Attack Vulnerability | Medium | Traders' swap txns are visible in mempo
                     {renderSection()}
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };

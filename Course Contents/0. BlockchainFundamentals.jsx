@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-import Footer from "../src/Footer";
+﻿import { useState, useEffect, useRef } from "react";
 
 // ─── Palette & Fonts ────────────────────────────────────────────────────────
 const G = {
@@ -1322,7 +1321,6 @@ export default function BlockchainFundamentals() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

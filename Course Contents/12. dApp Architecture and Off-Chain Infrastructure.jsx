@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import Footer from "../src/Footer";
+﻿import React, { useState, useCallback, useMemo } from 'react';
 
 const DAppArchitectureModule = () => {
     // ============================================================================
@@ -2902,7 +2901,6 @@ export function BalanceViewer({ userAddress }) {
 
             {/* Main Content */}
             <div className="main-content">{renderSection()}</div>
-            <Footer />
         </div>
     );
 };

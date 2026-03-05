@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
-import Footer from "../src/Footer";
+﻿import React, { useState, useRef, useEffect } from 'react';
 
 const BlockchainStandardsModule = () => {
     const [currentSection, setCurrentSection] = useState(0);
@@ -1644,7 +1643,6 @@ contract SecureToken is ERC20, AccessControl, Pausable, ReentrancyGuard {
                     }
                 `}</style>
             </div>
-            <Footer />
         </div>
     );
 };
