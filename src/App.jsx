@@ -1,4 +1,5 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
+import Footer from "./Footer";
 
 // Lazy-load each course module for code-splitting
 const modules = [
@@ -168,8 +169,29 @@ function Spinner() {
   );
 }
 
+const BASE = "/Blockchain-Technologies/";
+
 export default function App() {
-  const [active, setActive] = useState(0);
+  // Read module id from URL hash (#0 … #14) so each module has a direct link
+  const getInitial = () => {
+    const h = parseInt(window.location.hash.replace("#", ""), 10);
+    return isNaN(h) || h < 0 || h > 14 ? 0 : h;
+  };
+  const [active, setActive] = useState(getInitial);
+
+  // Keep URL hash in sync when user clicks a module tab
+  const navigate = (id) => {
+    setActive(id);
+    window.history.replaceState(null, "", BASE + "#" + id);
+  };
+
+  // Handle browser back/forward and direct URL load
+  useEffect(() => {
+    const onHash = () => setActive(getInitial());
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
   const { Component } = modules[active];
 
   return (
@@ -211,10 +233,13 @@ export default function App() {
           ⛓ BLOCKCHAIN TECH
         </span>
         {modules.map((m) => (
-          <button
+          <a
             key={m.id}
-            onClick={() => setActive(m.id)}
+            href={BASE + "#" + m.id}
+            onClick={(e) => { e.preventDefault(); navigate(m.id); }}
+            title={m.label}
             style={{
+              display: "inline-block",
               background: active === m.id ? G.amber : "transparent",
               color: active === m.id ? G.bg0 : G.textMuted,
               border: `1px solid ${active === m.id ? G.amber : G.border}`,
@@ -226,10 +251,11 @@ export default function App() {
               whiteSpace: "nowrap",
               fontWeight: active === m.id ? 700 : 400,
               transition: "all 0.15s",
+              textDecoration: "none",
             }}
           >
             {m.short}
-          </button>
+          </a>
         ))}
       </nav>
 
@@ -257,6 +283,9 @@ export default function App() {
       <Suspense fallback={<Spinner />}>
         <Component />
       </Suspense>
+
+      {/* ── Footer ── */}
+      <Footer />
     </div>
   );
 }
