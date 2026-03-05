@@ -1,5 +1,11 @@
 ﻿import React, { useState } from 'react';
 
+//  M4 Design System 
+const _S=`@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');::-webkit-scrollbar{width:4px;background:#080c10}::-webkit-scrollbar-thumb{background:#1a3a4a;border-radius:2px}@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}`;
+const _D=`.m4{background:#060a0e!important;color:#7eb8cc;font-family:'Merriweather',serif}.m4 h1,.m4 h2,.m4 h3,.m4 h4,.m4 h5,.m4 h6{color:#d6eef5!important;font-family:'Orbitron',sans-serif!important;background:transparent!important;border-color:#1c3344!important}.m4 p,.m4 li,.m4 td,.m4 span,.m4 label{color:#7eb8cc!important;background:transparent!important}.m4 div,.m4 section,.m4 ul,.m4 ol{background:transparent!important;background-color:transparent!important;border-color:#1c3344!important}.m4 pre,.m4 code{background:#030608!important;color:#00e5ff!important;border-color:#1c3344!important;font-family:'IBM Plex Mono',monospace!important}.m4 button{background:#00e5ff18!important;background-color:#00e5ff18!important;border:1px solid rgba(0,229,255,.31)!important;color:#00e5ff!important;font-family:'IBM Plex Mono',monospace!important;border-radius:4px!important}.m4 button:disabled{background:#121f2a!important;color:#2e5a6e!important}.m4 input,.m4 textarea,.m4 select{background:#0e1820!important;color:#7eb8cc!important;border-color:#1c3344!important}.m4 th{background:#0e1820!important;color:#d6eef5!important}.m4 tr{background:transparent!important}.m4 tr:nth-child(even){background:#0d1825!important}.m4 table *{border-color:#1c3344!important}.m4 strong,.m4 b{color:#d6eef5!important;background:transparent!important}.m4 a{color:#00e5ff!important;background:transparent!important}.m4 hr{border-color:#1c3344!important}.m4 .callout,.m4 .feedback,.m4 .quiz-section,.m4 .quiz-question{background:#0a1018!important;border-color:#1c3344!important}.m4 .callout.pitfall{border-color:#ff5252!important}.m4 .codeblock{background:#030608!important;color:#00e5ff!important;font-family:'IBM Plex Mono',monospace!important}`;
+const _C={bg0:"#060a0e",bg1:"#0a1018",bg2:"#0e1820",border:"#1c3344",cyan:"#00e5ff",cyanFaint:"#00e5ff14",text:"#7eb8cc",textMuted:"#2e5a6e",textBright:"#d6eef5",mono:"'IBM Plex Mono',monospace",disp:"'Orbitron',sans-serif",body:"'Merriweather',serif"};
+// 
+
 /**
  * ACM-Style Chapter Activity
  * Smart Contract Programming Foundations (Solidity / EVM Track)
@@ -15,28 +21,43 @@ const SmartContractFoundations = () => {
     { id: 'assessment',      label: 'Assessment & Answers' },
   ];
   return (
-    <div style={{ fontFamily: 'system-ui, -apple-system, Segoe UI, sans-serif', padding: '1.5rem', maxWidth: 1100, margin: '0 auto', lineHeight: 1.6 }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '0.25rem' }}>Smart Contract Programming Foundations</h1>
-      <h2 style={{ textAlign: 'center', fontWeight: 400, fontSize: '1.1rem', marginTop: 0 }}>
-        Solidity / EVM Track — ACM-Style Chapter Activity
-      </h2>
-      <nav style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center', margin: '1.5rem 0' }}>
-        {sections.map((s) => (
-          <button key={s.id} onClick={() => setSection(s.id)}
-            style={{ padding: '0.4rem 0.75rem', borderRadius: 4,
-              border: section === s.id ? '2px solid #0077bb' : '1px solid #ccc',
-              background: section === s.id ? '#e8f6ff' : '#f8f8f8', cursor: 'pointer', fontSize: '0.9rem' }}>
-            {s.label}
-          </button>
-        ))}
-      </nav>
-      {section === 'intro'           && <Intro />}
-      {section === 'contractAnatomy' && <ContractAnatomy />}
-      {section === 'storage'         && <StorageSection />}
-      {section === 'interface'       && <InterfaceDesign />}
-      {section === 'lab'             && <Lab />}
-      {section === 'assessment'      && <Assessment />}
-    </div>
+    <>
+      <style>{_S+_D}</style>
+      <div style={{display:"flex",height:"100vh",background:_C.bg0,color:_C.text,overflow:"hidden"}}>
+        <div style={{width:218,background:_C.bg1,borderRight:`1px solid ${_C.border}`,display:"flex",flexDirection:"column",flexShrink:0}}>
+          <div style={{padding:"18px 16px 14px",borderBottom:`1px solid ${_C.border}`}}>
+            <div style={{fontFamily:_C.mono,fontSize:8,color:_C.textMuted,letterSpacing:"0.24em",textTransform:"uppercase",marginBottom:8}}>ACM Educational Series</div>
+            <div style={{fontFamily:_C.disp,fontSize:13,fontWeight:700,color:_C.textBright,lineHeight:1.25,letterSpacing:"0.05em"}}>Smart Contract Foundations</div>
+            <div style={{display:"flex",alignItems:"center",gap:6,marginTop:10}}>
+              <div style={{width:5,height:5,borderRadius:"50%",background:_C.cyan,animation:"blink 1.8s ease infinite"}}/>
+              <span style={{fontFamily:_C.mono,fontSize:9,color:_C.textMuted}}>Chapter 6  Live</span>
+            </div>
+          </div>
+          <nav style={{flex:1,overflowY:"auto",padding:"6px 0"}}>
+            {sections.map((s,idx)=>(
+              <button key={s.id} onClick={()=>setSection(s.id)}
+                style={{width:"100%",padding:"9px 14px",background:section===s.id?_C.cyanFaint:"none",border:"none",borderLeft:`3px solid ${section===s.id?_C.cyan:"transparent"}`,cursor:"pointer",textAlign:"left",display:"flex",gap:10,alignItems:"center",transition:"all 0.15s"}}>
+                <span style={{fontFamily:_C.mono,fontSize:9,color:section===s.id?_C.cyan:_C.textMuted,minWidth:22}}>{idx+1}</span>
+                <span style={{fontFamily:_C.body,fontSize:13,color:section===s.id?_C.textBright:_C.textMuted,lineHeight:1.3}}>{s.label}</span>
+              </button>
+            ))}
+          </nav>
+          <div style={{padding:"10px 14px",borderTop:`1px solid ${_C.border}`}}>
+            <div style={{fontFamily:_C.mono,fontSize:9,color:_C.textMuted,lineHeight:1.75}}>Solidity  EVM  Storage<br/>Blockchain Technologies</div>
+          </div>
+        </div>
+        <div style={{flex:1,overflowY:"auto",padding:"38px 46px",maxWidth:860,margin:"0 auto",width:"100%"}}>
+          <div className="m4">
+            {section === 'intro'           && <Intro />}
+            {section === 'contractAnatomy' && <ContractAnatomy />}
+            {section === 'storage'         && <StorageSection />}
+            {section === 'interface'       && <InterfaceDesign />}
+            {section === 'lab'             && <Lab />}
+            {section === 'assessment'      && <Assessment />}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 export default SmartContractFoundations;

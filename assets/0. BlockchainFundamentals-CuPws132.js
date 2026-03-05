@@ -1,4 +1,4 @@
-import{r as m,j as e}from"./index-RYRiz1iP.js";const t={bg0:"#0a0c10",bg1:"#10141c",bg2:"#161c28",bg3:"#1e2636",border:"#2a3448",amber:"#f5a623",amberDim:"#c47f12",cyan:"#4dd9e0",red:"#e05c5c",green:"#4ec994",purple:"#9b72f5",text:"#d4dbe8",textMuted:"#7a8ba8",textBright:"#edf2f8"},$=`
+import{r as m,j as e}from"./index-_agJ5g7C.js";const t={bg0:"#0a0c10",bg1:"#10141c",bg2:"#161c28",bg3:"#1e2636",border:"#2a3448",amber:"#f5a623",amberDim:"#c47f12",cyan:"#4dd9e0",red:"#e05c5c",green:"#4ec994",purple:"#9b72f5",text:"#d4dbe8",textMuted:"#7a8ba8",textBright:"#edf2f8"},$=`
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: ${t.bg0}; }

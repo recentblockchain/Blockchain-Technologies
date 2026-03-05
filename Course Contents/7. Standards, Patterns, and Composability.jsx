@@ -1,5 +1,11 @@
 ﻿import React, { useState, useRef, useEffect } from 'react';
 
+//  M4 Design System 
+const _S=`@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');::-webkit-scrollbar{width:4px;background:#080c10}::-webkit-scrollbar-thumb{background:#1a3a4a;border-radius:2px}@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}`;
+const _D=`.m4{background:#060a0e!important;color:#7eb8cc;font-family:'Merriweather',serif}.m4 h1,.m4 h2,.m4 h3,.m4 h4,.m4 h5,.m4 h6{color:#d6eef5!important;font-family:'Orbitron',sans-serif!important;background:transparent!important;border-color:#1c3344!important}.m4 p,.m4 li,.m4 td,.m4 span,.m4 label{color:#7eb8cc!important;background:transparent!important}.m4 div,.m4 section,.m4 ul,.m4 ol{background:transparent!important;background-color:transparent!important;border-color:#1c3344!important}.m4 pre,.m4 code{background:#030608!important;color:#00e5ff!important;border-color:#1c3344!important;font-family:'IBM Plex Mono',monospace!important}.m4 button{background:#00e5ff18!important;background-color:#00e5ff18!important;border:1px solid rgba(0,229,255,.31)!important;color:#00e5ff!important;font-family:'IBM Plex Mono',monospace!important;border-radius:4px!important}.m4 button:disabled{background:#121f2a!important;color:#2e5a6e!important}.m4 input,.m4 textarea,.m4 select{background:#0e1820!important;color:#7eb8cc!important;border-color:#1c3344!important}.m4 th{background:#0e1820!important;color:#d6eef5!important}.m4 tr{background:transparent!important}.m4 tr:nth-child(even){background:#0d1825!important}.m4 table *{border-color:#1c3344!important}.m4 strong,.m4 b{color:#d6eef5!important;background:transparent!important}.m4 a{color:#00e5ff!important;background:transparent!important}.m4 hr{border-color:#1c3344!important}.m4 .callout,.m4 .feedback,.m4 .quiz-section,.m4 .quiz-question{background:#0a1018!important;border-color:#1c3344!important}.m4 .callout.pitfall{border-color:#ff5252!important}.m4 .codeblock{background:#030608!important;color:#00e5ff!important;font-family:'IBM Plex Mono',monospace!important}`;
+const _C={bg0:"#060a0e",bg1:"#0a1018",bg2:"#0e1820",border:"#1c3344",cyan:"#00e5ff",cyanFaint:"#00e5ff14",text:"#7eb8cc",textMuted:"#2e5a6e",textBright:"#d6eef5",mono:"'IBM Plex Mono',monospace",disp:"'Orbitron',sans-serif",body:"'Merriweather',serif"};
+// 
+
 const BlockchainStandardsModule = () => {
     const [currentSection, setCurrentSection] = useState(0);
     const [showAnswers, setShowAnswers] = useState(false);
@@ -1420,21 +1426,22 @@ contract SecureToken is ERC20, AccessControl, Pausable, ReentrancyGuard {
     const current = getCurrentSection();
 
     return (
-        <div style={{ display: 'flex', fontFamily: 'Arial, sans-serif', minHeight: '100vh', backgroundColor: '#fafafa' }}>
+        <>
+        <style>{_S+_D}</style>
+        <div style={{display:'flex',height:'100vh',background:_C.bg0,color:_C.text,overflow:'hidden'}}>
             {/* Left Navigation */}
             <div style={{
-                width: '250px',
-                backgroundColor: '#1f1f1f',
-                color: 'white',
-                overflowY: 'auto',
-                padding: '20px',
-                position: 'fixed',
-                height: '100vh',
-                boxShadow: '2px 0 5px rgba(0,0,0,0.2)'
+                width:218,background:_C.bg1,borderRight:`1px solid ${_C.border}`,
+                display:'flex',flexDirection:'column',flexShrink:0,overflowY:'auto'
             }}>
-                <h2 style={{ marginTop: 0, fontSize: '18px', borderBottom: '1px solid #555', paddingBottom: '10px' }}>
-                    Blockchain Standards
-                </h2>
+                <div style={{padding:'18px 16px 14px',borderBottom:`1px solid ${_C.border}`}}>
+                    <div style={{fontFamily:_C.mono,fontSize:8,color:_C.textMuted,letterSpacing:'0.24em',textTransform:'uppercase',marginBottom:8}}>ACM Educational Series</div>
+                    <div style={{fontFamily:_C.disp,fontSize:13,fontWeight:700,color:_C.textBright,lineHeight:1.25,letterSpacing:'0.05em'}}>Standards &amp; Composability</div>
+                    <div style={{display:'flex',alignItems:'center',gap:6,marginTop:10}}>
+                        <div style={{width:5,height:5,borderRadius:'50%',background:_C.cyan,animation:'blink 1.8s ease infinite'}}/>
+                        <span style={{fontFamily:_C.mono,fontSize:9,color:_C.textMuted}}>Chapter 7 · Live</span>
+                    </div>
+                </div>
 
                 <div style={{ marginBottom: '20px' }}>
                     <label style={{ fontSize: '12px', color: '#aaa' }}>Progress: {calculateProgress()}%</label>
@@ -1466,28 +1473,21 @@ contract SecureToken is ERC20, AccessControl, Pausable, ReentrancyGuard {
                     </label>
                 </div>
 
-                <nav>
+                <nav style={{flex:1,overflowY:'auto',padding:'6px 0'}}>
                     {sections.map((s, idx) => (
                         <button
                             key={s.id}
                             onClick={() => setCurrentSection(idx)}
                             style={{
-                                display: 'block',
-                                width: '100%',
-                                padding: '12px',
-                                margin: '5px 0',
-                                backgroundColor: currentSection === idx ? '#4CAF50' : (completedSections.has(s.id) ? '#2196F3' : '#333'),
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '4px',
-                                cursor: 'pointer',
-                                textAlign: 'left',
-                                fontSize: '12px',
-                                fontWeight: currentSection === idx ? 'bold' : 'normal'
+                                width:'100%',padding:'9px 14px',
+                                background:currentSection===idx?_C.cyanFaint:'none',
+                                border:'none',borderLeft:`3px solid ${currentSection===idx?_C.cyan:'transparent'}`,
+                                cursor:'pointer',textAlign:'left',display:'flex',gap:10,alignItems:'center',transition:'all 0.15s'
                             }}
                             aria-current={currentSection === idx ? 'page' : undefined}
                         >
-                            {completedSections.has(s.id) && '✓ '}{s.title}
+                            <span style={{fontFamily:_C.mono,fontSize:9,color:currentSection===idx?_C.cyan:_C.textMuted,minWidth:22}}>§{idx+1}</span>
+                            <span style={{fontFamily:_C.body,fontSize:12,color:currentSection===idx?_C.textBright:_C.textMuted,lineHeight:1.3}}>{completedSections.has(s.id)?'✓ ':''}{s.title}</span>
                         </button>
                     ))}
                 </nav>
@@ -1518,19 +1518,8 @@ contract SecureToken is ERC20, AccessControl, Pausable, ReentrancyGuard {
             </div>
 
             {/* Main Content */}
-            <div style={{
-                marginLeft: '250px',
-                flex: 1,
-                padding: '40px',
-                maxWidth: '1000px',
-                margin: '0 auto'
-            }}>
-                <div ref={contentRef} style={{
-                    backgroundColor: 'white',
-                    padding: '30px',
-                    borderRadius: '8px',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-                }}>
+            <div style={{flex:1,overflowY:'auto',padding:'38px 46px',maxWidth:860,margin:'0 auto',width:'100%'}}>
+                <div ref={contentRef} className="m4">
                     {/* Initial intro section */}
                     {current.type === 'content' && (
                         <>
@@ -1644,6 +1633,7 @@ contract SecureToken is ERC20, AccessControl, Pausable, ReentrancyGuard {
                 `}</style>
             </div>
         </div>
+    </>
     );
 };
 

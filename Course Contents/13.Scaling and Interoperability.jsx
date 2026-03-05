@@ -1,5 +1,11 @@
 ﻿import React, { useState, useEffect } from 'react';
 
+//  M4 Design System 
+const _S=`@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');::-webkit-scrollbar{width:4px;background:#080c10}::-webkit-scrollbar-thumb{background:#1a3a4a;border-radius:2px}@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}`;
+const _D=`.m4{background:#060a0e!important;color:#7eb8cc;font-family:'Merriweather',serif}.m4 h1,.m4 h2,.m4 h3,.m4 h4,.m4 h5,.m4 h6{color:#d6eef5!important;font-family:'Orbitron',sans-serif!important;background:transparent!important;border-color:#1c3344!important}.m4 p,.m4 li,.m4 td,.m4 span,.m4 label{color:#7eb8cc!important;background:transparent!important}.m4 div,.m4 section,.m4 ul,.m4 ol{background:transparent!important;background-color:transparent!important;border-color:#1c3344!important}.m4 pre,.m4 code{background:#030608!important;color:#00e5ff!important;border-color:#1c3344!important;font-family:'IBM Plex Mono',monospace!important}.m4 button{background:#00e5ff18!important;background-color:#00e5ff18!important;border:1px solid rgba(0,229,255,.31)!important;color:#00e5ff!important;font-family:'IBM Plex Mono',monospace!important;border-radius:4px!important}.m4 button:disabled{background:#121f2a!important;color:#2e5a6e!important}.m4 input,.m4 textarea,.m4 select{background:#0e1820!important;color:#7eb8cc!important;border-color:#1c3344!important}.m4 th{background:#0e1820!important;color:#d6eef5!important}.m4 tr{background:transparent!important}.m4 tr:nth-child(even){background:#0d1825!important}.m4 table *{border-color:#1c3344!important}.m4 strong,.m4 b{color:#d6eef5!important;background:transparent!important}.m4 a{color:#00e5ff!important;background:transparent!important}.m4 hr{border-color:#1c3344!important}.m4 .callout,.m4 .feedback,.m4 .quiz-section,.m4 .quiz-question{background:#0a1018!important;border-color:#1c3344!important}.m4 .callout.pitfall{border-color:#ff5252!important}.m4 .codeblock{background:#030608!important;color:#00e5ff!important;font-family:'IBM Plex Mono',monospace!important}`;
+const _C={bg0:"#060a0e",bg1:"#0a1018",bg2:"#0e1820",border:"#1c3344",cyan:"#00e5ff",cyanFaint:"#00e5ff14",text:"#7eb8cc",textMuted:"#2e5a6e",textBright:"#d6eef5",mono:"'IBM Plex Mono',monospace",disp:"'Orbitron',sans-serif",body:"'Merriweather',serif"};
+// 
+
 const ScalingAndInteroperabilityModule = () => {
     const [currentSection, setCurrentSection] = useState('intro');
     const [progress, setProgress] = useState(0);
@@ -2149,10 +2155,19 @@ EXERCISE:
     };
 
     return (
-        <div className="min-h-screen bg-white">
-            <div className="max-w-7xl mx-auto flex">
+        <>
+        <style>{_S+_D}</style>
+        <div style={{display:'flex',height:'100vh',background:_C.bg0,color:_C.text,overflow:'hidden'}}>
                 {/* Sidebar Navigation */}
-                <div className="w-60 bg-gray-100 p-4 min-h-screen overflow-y-auto border-r">
+                <div style={{width:218,background:_C.bg1,borderRight:`1px solid ${_C.border}`,display:'flex',flexDirection:'column',flexShrink:0,overflowY:'auto'}}>
+                <div style={{padding:'18px 16px 14px',borderBottom:`1px solid ${_C.border}`}}>
+                    <div style={{fontFamily:_C.mono,fontSize:8,color:_C.textMuted,letterSpacing:'0.24em',textTransform:'uppercase',marginBottom:8}}>ACM Educational Series</div>
+                    <div style={{fontFamily:_C.disp,fontSize:13,fontWeight:700,color:_C.textBright,lineHeight:1.25,letterSpacing:'0.05em'}}>Scaling & Interop</div>
+                    <div style={{display:'flex',alignItems:'center',gap:6,marginTop:10}}>
+                        <div style={{width:5,height:5,borderRadius:'50%',background:_C.cyan,animation:'blink 1.8s ease infinite'}}/>
+                        <span style={{fontFamily:_C.mono,fontSize:9,color:_C.textMuted}}>Chapter 13  Live</span>
+                    </div>
+                </div>
                     <div className="mb-6">
                         <p className="text-xs font-semibold text-gray-600 uppercase">Progress</p>
                         <div className="w-full bg-gray-300 rounded-full h-2 mt-2">
@@ -2164,19 +2179,18 @@ EXERCISE:
                         <p className="text-xs text-gray-600 mt-1">{progress}% Complete</p>
                     </div>
 
-                    <nav className="space-y-1">
-                        {sections.map((section) => (
-                            <button
-                                key={section.id}
-                                onClick={() => setCurrentSection(section.id)}
-                                className={`block w-full text-left px-4 py-2 rounded text-sm transition-colors ${
-                                    currentSection === section.id
-                                        ? 'bg-blue-600 text-white font-semibold'
-                                        : 'text-gray-700 hover:bg-gray-200'
-                                }`}
-                                aria-current={currentSection === section.id ? 'page' : undefined}
+                    <nav style={{flex:1,overflowY:'auto',padding:'6px 0'}}>
+                        {sections.map((section,idx) => (
+                            <button key={section.id} onClick={() => setCurrentSection(section.id)}
+                                style={{
+                                    width:'100%',padding:'9px 14px',
+                                    background:currentSection===section.id?_C.cyanFaint:'none',
+                                    border:'none',borderLeft:`3px solid ${currentSection===section.id?_C.cyan:'transparent'}`,
+                                    cursor:'pointer',textAlign:'left',display:'flex',gap:10,alignItems:'center',transition:'all 0.15s'
+                                }}
                             >
-                                {section.label}
+                                <span style={{fontFamily:_C.mono,fontSize:9,color:currentSection===section.id?_C.cyan:_C.textMuted,minWidth:22}}>{idx+1}</span>
+                                <span style={{fontFamily:_C.body,fontSize:12,color:currentSection===section.id?_C.textBright:_C.textMuted,lineHeight:1.3}}>{section.label}</span>
                             </button>
                         ))}
                     </nav>
@@ -2214,11 +2228,13 @@ EXERCISE:
                 </div>
 
                 {/* Main Content */}
-                <div className="flex-1 p-8 overflow-y-auto">
+                <div style={{flex:1,overflowY:'auto',padding:'38px 46px',maxWidth:860,margin:'0 auto',width:'100%'}}>
+                    <div className="m4">
                     {renderContent()}
+                    </div>
                 </div>
-            </div>
         </div>
+    </>
     );
 };
 
